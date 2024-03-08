@@ -54,7 +54,9 @@ size_t	ft_strlen(const char *s);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strjoin(char *s1, char *s2);
 void ft_bzero(char *str, int size);
-
+void execution(t_node *content, t_hold *env);
+char	**ft_split(char *s, char c);
+char    *ft_strjoined(char *s1, char *s2);
 
 //  P   A   R   S   I   N   G
 

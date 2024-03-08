@@ -203,6 +203,7 @@ int main(int ac, char **av, char **envr)
             free_env(&env);
             exit(0);
         }
+        add_history(s);
         if (!join_line(s))
         {
             free(s);
@@ -220,32 +221,32 @@ int main(int ac, char **av, char **envr)
             continue;
         parsing(node, s,&node->buffer);
         split_parsing(node, env);
-        t_command *current = node->command;
-        while (current)
-        {
-            int i = 0;
-            printf("Command:%s$\n", current->str);
-            t_redirect *input = current->input;
-            while(input)
-            {
-                printf("Input:%s$\n", input->str);
-                input = input->next;
-            }
-            t_redirect *output = current->output;
-            while(output)
-            {
-                printf("Output:%s$\n", output->str);
-                output = output->next;
-            }
-            char **temp = current->options;
-            while (temp[i])
-            {
-                printf("Option:%d:%s$\n", i, temp[i]);
-                i++;
-            }
-            current = current->next;
-        }
-        //execution(node, env);
+        // t_command *current = node->command;
+        // while (current)
+        // {
+        //     int i = 0;
+        //     printf("Command:%s$\n", current->str);
+        //     t_redirect *input = current->input;
+        //     while(input)
+        //     {
+        //         printf("Input:%s$\n", input->str);
+        //         input = input->next;
+        //     }
+        //     t_redirect *output = current->output;
+        //     while(output)
+        //     {
+        //         printf("Output:%s$\n", output->str);
+        //         output = output->next;
+        //     }
+        //     char **temp = current->options;
+        //     while (temp[i])
+        //     {
+        //         printf("Option:%d:%s$\n", i, temp[i]);
+        //         i++;
+        //     }
+        //     current = current->next;
+        // }
+        execution(node, env);
         free_node(&node);
         ft_add_node(&node, ft_new_node());
         free(s);

@@ -26,7 +26,26 @@ char	*ft_strjoin(char *s1, char *s2)
 	pointer[len1 + len2] = '\0';
 	return (pointer);
 }
+char	*ft_strjoined(char *s1, char *s2)
+{
+	size_t	len1;
+	size_t	len2;
+	char	*pointer;
 
+	if (s1 == NULL && s2 == NULL)
+		return (NULL);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	pointer = (char *)malloc(len1 + len2 + 1);
+	if (pointer == NULL)
+		return (NULL);
+	if (s1)
+		ft_memcpy(pointer, s1, len1);
+	if (s2)
+		ft_memcpy(pointer + len1, s2, len2);
+	pointer[len1 + len2] = '\0';
+	return (pointer);
+}
 void ft_bzero(char *str, int size)
 {
     int i = 0;

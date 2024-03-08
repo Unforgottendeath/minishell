@@ -38,7 +38,7 @@ void parsing_input(t_node *content, char **str)
     buffer = malloc(2048);
     x = *str;
     temp = buffer;
-    int flag = 1;
+    int flag = 0;
     x++;
     if (*x == '<')
     {
@@ -70,7 +70,7 @@ void parsing_output(t_node *content, char **str)
     buffer = malloc(2048);
     x = *str;
     temp = buffer;
-    int flag = 1;
+    int flag = 0;
     x++;
     if (*x == '>')
     {

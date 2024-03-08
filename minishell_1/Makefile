@@ -8,7 +8,9 @@ SRCS =	utils_1.c \
 		node_utils.c \
 		command_utils.c \
 		minishell.c \
-		split_parsing.c
+		split_parsing.c \
+		ft_split.c \
+		execution.c
 OBJS = $(SRCS:.c=.o)
 NAME = minishell
 
